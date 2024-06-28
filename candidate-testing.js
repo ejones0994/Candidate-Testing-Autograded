@@ -39,15 +39,15 @@ function askQuestion() {
 }
 
 function gradeQuiz(candidateAnswers) {
+  let candidateScoreCount = 0
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   for(let i = 0; i < candidateAnswers.length; i++) {
     console.log(`Your answer: ${candidateAnswers[i]}. Correct answer: ${correctAnswers[i]}`);
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase())
+      candidateScoreCount++;
   }
 
-  
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
-
+  let grade = candidateScoreCount / candidateAnswers.length * 100; //TODO 3.2 use this variable to calculate the candidates score.
   return grade;
 }
 
@@ -60,7 +60,8 @@ function runProgram() {
     candidateAnswer = input.question(questions[i]);
     candidateAnswers.push(candidateAnswer)
   }
-  gradeQuiz(this.candidateAnswers);
+  let finalGrade = gradeQuiz(this.candidateAnswers);
+  console.log(`Your final grade is ${finalGrade}.`)
 }
 
 // ----------- Don't write any code or change any code below this line ---------- //
