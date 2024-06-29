@@ -62,7 +62,11 @@ function runProgram() {
   }
   let finalGrade = gradeQuiz(this.candidateAnswers);
   console.log(`Your final grade is ${finalGrade}.`)
-}
+  if(finalGrade >= 60){
+    console.log("You pass the quiz!");
+} else{
+  console.log("You did not pass the quiz!")
+}}
 
 // ----------- Don't write any code or change any code below this line ---------- //
 module.exports = {
